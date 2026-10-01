@@ -63,7 +63,7 @@ Open http://localhost:5173
    - `LLM_MODEL`
    - `FRONTEND_ORIGINS` — exact public frontend origin(s), comma-separated
 3. Set `DATABASE_URL` to a persistent PostgreSQL connection string using the `postgresql+psycopg://` driver prefix. Do not use the default SQLite file for Vercel.
-4. Set the frontend project’s `VITE_API_URL` to the deployed backend URL, with no trailing slash, then redeploy the frontend.
+4. Set the frontend project’s `VITE_API_URL` to `https://v-pilot.vercel.app`, with no trailing slash, then redeploy the frontend.
 5. Deploy. Vercel sets `VERCEL=1`; the backend now fails early with an actionable message if the database is still configured as SQLite.
 6. Keep `LLM_API_KEY` only in the backend Vercel project. Never add it to the frontend project or a `VITE_` variable.
 
