@@ -20,7 +20,7 @@ LLM_BASE_URL=https://your-provider.example/v1
 LLM_MODEL=Qwen/Qwen2.5-7B-Instruct
 ```
 
-For local development, you can use SQLite. For production on Render, set the same variables in the Render dashboard or environment config.
+For local development, you can use SQLite. For Vercel production, use a persistent PostgreSQL database and set the values in the Vercel project environment settings.
 
 Do not put the API key in the React frontend. The frontend only calls the FastAPI backend.
 
@@ -53,17 +53,19 @@ The frontend `.env` sets `VITE_API_URL=http://localhost:8000` for local developm
 
 Open http://localhost:5173
 
-## Production setup (Render)
+## Production setup (Vercel)
 
-1. Set these environment variables in Render for the backend service:
+1. Create a Vercel project for the backend and set its **Root Directory** to `backend`. Vercel recognizes `main.py` as the FastAPI entrypoint and installs dependencies from `backend/requirements.txt`; no Node `package.json`, `app.listen()`, or custom server is needed for the API.
+2. Add these environment variables to the Vercel backend project (Production, and Preview if needed):
    - `DATABASE_URL`
    - `LLM_API_KEY`
    - `LLM_BASE_URL`
    - `LLM_MODEL`
-   - `FRONTEND_ORIGINS` — the exact public origin(s) of the frontend, comma-separated (for example, `https://your-vpilot-frontend.onrender.com`)
-2. Deploy the backend service with the Python app.
-3. For the frontend service, set the build environment variable `VITE_API_URL` to the public backend URL, with no trailing slash (for example, `https://your-vpilot-backend.onrender.com`). Rebuild/redeploy the frontend after changing it.
-4. Do not expose the LLM API key in the frontend build or browser.
+   - `FRONTEND_ORIGINS` — exact public frontend origin(s), comma-separated
+3. Set `DATABASE_URL` to a persistent PostgreSQL connection string using the `postgresql+psycopg://` driver prefix. Do not use the default SQLite file for Vercel.
+4. Set the frontend project’s `VITE_API_URL` to the deployed backend URL, with no trailing slash, then redeploy the frontend.
+5. Deploy. Vercel sets `VERCEL=1`; the backend now fails early with an actionable message if the database is still configured as SQLite.
+6. Keep `LLM_API_KEY` only in the backend Vercel project. Never add it to the frontend project or a `VITE_` variable.
 
 ## OpenAI-compatible hosted Qwen API
 

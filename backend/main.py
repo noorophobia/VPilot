@@ -1,3 +1,4 @@
+import os
 from typing import Literal
 
 from fastapi import Depends, FastAPI, HTTPException, Query
@@ -24,6 +25,11 @@ app.add_middleware(
 
 @app.on_event("startup")
 def on_startup() -> None:
+    if os.getenv("VERCEL") == "1" and settings.database_url.startswith("sqlite"):
+        raise RuntimeError(
+            "Vercel requires DATABASE_URL to point to a persistent PostgreSQL database; "
+            "SQLite files are not persistent or writable in the deployment bundle."
+        )
     init_db()
 
 
