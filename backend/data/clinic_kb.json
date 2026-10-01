@@ -1,0 +1,32 @@
+[
+  {
+    "id": "hours",
+    "title": "Clinic hours",
+    "text": "Sunrise Family Clinic is open Monday through Friday, 8:00 AM to 6:00 PM, and Saturday 9:00 AM to 1:00 PM. We are closed on Sundays and public holidays."
+  },
+  {
+    "id": "location",
+    "title": "Address and parking",
+    "text": "We are located at 120 Cedar Lane, Suite 200. Free parking is available in the lot behind the building. The main entrance is on Cedar Lane."
+  },
+  {
+    "id": "services",
+    "title": "Services",
+    "text": "We offer general practice, pediatrics, and women's health. We do not provide emergency care; for emergencies call 911 or go to the nearest hospital."
+  },
+  {
+    "id": "insurance",
+    "title": "Insurance",
+    "text": "We accept most major insurance plans including BlueCross Basic and CityCare. Bring your insurance card to every visit. For billing questions, call our front desk at (555) 010-2200."
+  },
+  {
+    "id": "appointments_policy",
+    "title": "Appointments",
+    "text": "Appointments are 30 minutes. Please arrive 10 minutes early. To cancel or reschedule, contact us at least 24 hours in advance."
+  },
+  {
+    "id": "contact",
+    "title": "Contact",
+    "text": "Front desk phone: (555) 010-2200. Email: hello@sunrisefamilyclinic.example (demo only)."
+  }
+]

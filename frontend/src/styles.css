@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #f4f6f8;
+  color: #1a1a1a;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  color: #0b5fff;
+}
+
+.header p {
+  margin: 0.25rem 0 1rem;
+  color: #555;
+}
+
+.chat {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.bubble {
+  max-width: 90%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e0e4ea;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: #e8f0ff;
+  border-color: #c5d8ff;
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+}
+
+.bubble.loading p {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.composer {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.composer input {
+  flex: 1;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.composer button {
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #0b5fff;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mic-placeholder {
+  background: #e0e4ea !important;
+  color: #444 !important;
+}
+
+.error {
+  background: #ffe8e8;
+  color: #8b0000;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
